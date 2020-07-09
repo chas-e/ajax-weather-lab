@@ -1,6 +1,6 @@
 // GA API key 53aa2cd6 for OMDb
 
-// OMDb data req URL http://www.omdbapi.com/?apikey=[yourkey]&
+// OpenWeather API : api.openweathermap.org/data/2.5/weather?q=city name&appid=76ba8c095c64812543d52e97dcde331a
 
 // unicode encoding for space is %20
 
@@ -15,11 +15,12 @@
 
 // promises are a big box - data or error come back in them from the API
 
-let cityData, userInput;
+let weatherData, userInput;
 
-const $location = $('#location');
-const $year = $('#temp');
-const $rated = $('#feels');
+const $city = $('#city');
+const $temp = $('#temp');
+const $feels = $('#feels');
+const $forecast = $('#forecast');
 const $input = $('input[type="text"]');
 $('form').on('submit', handleGetData);
 
@@ -28,11 +29,11 @@ function handleGetData(event) {
 
     userInput = $input.val();
     $.ajax({
-        url: `https://www.omdbapi.com/?apikey=53aa2cd6&t=${userInput}`
+        url: `api.openweathermap.org/data/2.5/weather?q=${userInput}&appid=76ba8c095c64812543d52e97dcde331a`
     }).then(
         (data) => {
             console.log("Data Is", data);
-            movieData = data;
+            weatherData = data;
             render();
 
         },
@@ -45,8 +46,9 @@ function handleGetData(event) {
 // Above: 'Title', 'Year', and 'Rated' come from object returned by the API, our variables match our index.html file
 
 function render() {
-    $title.html(movieData.Title);
-    $year.html(movieData.Year);
-    $rated.html(movieData.Rated);
-    $('img').attr('src', movieData.Poster);
+    $city.html(weatherData.Title);
+    $temp.html(weatherData.Year);
+    $rated.html(weatherData.Rated);
+    $forecast.html(weatherData.Forecast)
+
 }
