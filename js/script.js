@@ -22,6 +22,7 @@ const $temp = $('#temp');
 const $feels = $('#feels');
 const $weatherDescr = $('#weatherDescr');
 const $input = $('input[type="text"]');
+
 $('form').on('submit', handleGetData);
 
 function handleGetData(event) {
