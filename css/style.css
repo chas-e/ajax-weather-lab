@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    text-align: center;
+    background-image: url(https://imgur.com/VPImkhs);
+}
+
+#header {
+    color: whitesmoke;
+    background-color: darkblue;
+}
